@@ -2,7 +2,7 @@ import React from 'react';
 
 const ProductCard = ({ image, name, price }) => {
   return (
-    <div className="card-container w-72 h-96 bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between">
+    <div className="card-container w-72 h-96 bg-white shadow-lg rounded-lg p-4 flex flex-col justify-between transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer">
       <div className="card-items text-center">
         {/* Product Image */}
         <img
