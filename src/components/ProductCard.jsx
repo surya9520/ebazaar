@@ -6,13 +6,13 @@ const ProductCard = ({ image, name, price }) => {
       <div className="card-items text-center">
         {/* Product Image */}
         <img
-          className="w-full h-40 object-cover rounded-lg"
+          className="w-full h-40 object-contain rounded-lg"
           src={image || "https://via.placeholder.com/150"}
           alt={name}
         />
         
         {/* Product Name */}
-        <h1 className="text-lg font-semibold mt-4">{name || "Product Title"}</h1>
+        <h1 className="text-lg font-semibold mt-4 truncate max-w-xs">{name || "Product Title"}</h1>
         
         {/* Product Price */}
         <h2 className="text-xl font-bold text-gray-800 mt-2">${price || "0.00"}</h2>
