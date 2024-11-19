@@ -9,12 +9,21 @@ const initialState={
     totalItem:0,
 }
 const [state,dispatch]=useReducer(reducer,initialState);    
-const AddtoCart=(id,image,title,price,quantity=1)=>{
-    dispatch({type:"AddToCart",payload:{id,image,title,price,quantity}})
+const AddtoCart=(product,quantity=1)=>{
+    dispatch({type:"AddToCart",payload:{...product,quantity}})
+}
+const removeItem=(id)=>{
+    dispatch({type:"RemoveItem",payload:{id}})
+}
+const decQuantity=(id)=>{
+    dispatch({type:"decItem",payload:{id}})
+}
+const incQuantity=(id)=>{
+    dispatch({type:"incItem",payload:{id}})
 }
   return (
     <>
-    <cartContext.Provider value={{...state,AddtoCart}}>
+    <cartContext.Provider value={{...state,AddtoCart,removeItem,decQuantity,incQuantity}}>
         {children}
     </cartContext.Provider>
     </>

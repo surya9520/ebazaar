@@ -19,9 +19,7 @@ const ProductList = ({loading,products}) => {
                 {products.map((product) => (
                   <ProductCard
                     key={product.id}
-                    image={product.image || "https://via.placeholder.com/150"}
-                    price={product.price}
-                    name={product.title}
+                    product={product}
                   />
                 ))}
               </div>

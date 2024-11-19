@@ -24,7 +24,7 @@ const Home = () => {
         : product.category.toLowerCase() === category.toLowerCase()
     );
     setFilteredProducts(filtered);
-    setCurrentPage(1); // Reset to the first page
+    setCurrentPage(1);
   };
 
   // Handle Search Bar Input
@@ -33,7 +33,7 @@ const Home = () => {
       product.title.toLowerCase().includes(search.toLowerCase())
     );
     setFilteredProducts(filtered);
-    setCurrentPage(1); // Reset to the first page
+    setCurrentPage(1);
   };
 
   // Sort products high to low based on price
@@ -60,7 +60,7 @@ const Home = () => {
       default:
         break;
     }
-    setCurrentPage(1); // Reset to the first page
+    setCurrentPage(1);
   };
 
   // Fetch Products

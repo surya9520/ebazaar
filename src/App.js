@@ -1,3 +1,4 @@
+import CartPage from "./CartPage";
 import CategoryFilter from "./components/CategoryFilter";
 import Navbar from "./components/Navbar";
 import ProductCard from "./components/ProductCard";
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home/>}/>
+          <Route path="/cart" element={<CartPage/>}/>
           <Route path="/product/:id" element={<ProductDetail/>}/>
         </Routes>
       </BrowserRouter>

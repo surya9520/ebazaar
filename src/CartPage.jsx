@@ -3,12 +3,16 @@ import CartItem from "./components/CartItem";
 import { useCartContext } from "./contexts/cartContext";
 
 const CartPage = () => {
-  const {totalItem,cart,totalAmount} = useCartContext();
-  console.log(totalAmount)
-useEffect(()=>{
+  const { totalItem, cart, totalAmount } = useCartContext();  // Destructure cart data from context
+  console.log(totalAmount);
 
-},[cart,totalItem])
+  // useEffect to track changes in cart or totalItem
+  useEffect(() => {
+    // You can add any side-effect logic here if needed
+  }, [cart, totalItem]);
+
   console.log(cart);
+
   return (
     <div className="min-h-screen bg-gray-100 py-10">
       <div className="max-w-7xl mx-auto bg-white p-6 rounded-xl shadow-lg">
@@ -18,11 +22,16 @@ useEffect(()=>{
         <div className="flex flex-col lg:flex-row gap-8">
           {/* Left Section: Cart Items */}
           <div className="flex-1 space-y-6">
-            {cart.length>0?cart.map((product) => {
-              return <CartItem key={product.id} product={product}/>
-            }):  <p className="text-center text-gray-500 text-lg mt-10">
-            No items in the cart
-          </p>}
+            {/* Check if cart is empty or not */}
+            {cart.length > 0 ? (
+              cart.map((product) => {
+                return <CartItem key={product.id} product={product} />;
+              })
+            ) : (
+              <p className="text-center text-gray-500 text-lg mt-10">
+                No items in the cart
+              </p>
+            )}
           </div>
 
           {/* Right Section: Order Summary */}
@@ -30,9 +39,10 @@ useEffect(()=>{
             <h2 className="text-xl font-semibold text-gray-700 mb-4">
               Order Summary
             </h2>
+            {/* Subtotal and total amount display */}
             <div className="flex justify-between text-gray-600 mb-2">
               <p>Subtotal:</p>
-              <p>₹ {totalAmount||0}</p>
+              <p>₹ {totalAmount || 0}</p>
             </div>
             <div className="flex justify-between text-gray-600 mb-2">
               <p>Shipping:</p>
@@ -40,12 +50,13 @@ useEffect(()=>{
             </div>
             <div className="flex justify-between text-lg font-bold text-gray-800">
               <p>Total items:</p>
-              <p>{totalItem||0}</p>
+              <p>{totalItem || 0}</p>
             </div>
             <div className="flex justify-between text-lg font-bold text-gray-800">
               <p>Total:</p>
-              <p>₹ {totalAmount||0}</p>
+              <p>₹ {totalAmount || 0}</p>
             </div>
+            {/* Proceed to checkout button */}
             <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-lg text-lg hover:bg-blue-700 transition">
               Proceed to Checkout
             </button>

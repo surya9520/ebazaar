@@ -1,70 +1,119 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# eBazar - React.js Product Catalog
 
-## Available Scripts
+**eBazar** is a simple and responsive product catalog application built using React.js. The app displays a list of products and allows users to search, filter, sort, and view detailed product information. Designed with React best practices, it utilizes reusable components, state management with React hooks, and focuses on providing a clean, user-friendly interface.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 1. Product Listing
+- Displays products in a **grid format** with an image, name, price, and a **"View Details"** button.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 2. Product Details
+- Shows detailed information about a product when **"View Details"** is clicked.
+- Includes **navigation back to the product listing** (using React Router).
 
-### `npm test`
+### 3. Search Functionality
+- Real-time **filtering of products by name** using a search bar.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 4. Category Filter
+- Allows filtering products by **categories**.
 
-### `npm run build`
+### 5. Pagination
+- Displays **12 products per page**.
+- Includes **"Previous"** and **"Next"** buttons, which are disabled when on the first or last page.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 6. Sorting
+- Allows users to **sort products by price** in ascending or descending order.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 7. Fetch
+- fetch the data from **https://fakestoreapi.com/products/** 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Optional Enhancements
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Responsive Design**: The app works seamlessly on desktops, tablets, and mobiles.
+- **Hover Effects**: Interactive transitions added for a better user experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Challenges Faced & Solutions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 1. Managing Component State
+- **Challenge**: Handling search, filter, and pagination states simultaneously.
+- **Solution**: Used `useState` and `useEffect` hooks to manage dynamic updates efficiently.
 
-## Learn More
+### 2. Responsive Design
+- **Challenge**: Ensuring the app adapts properly to different screen sizes.
+- **Solution**: Leveraged **Tailwind CSS** to ensure seamless responsiveness across devices.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 3. Pagination Logic
+- **Challenge**: Keeping **'Previous'** and **'Next'** buttons inactive at boundary pages.
+- **Solution**: Added **conditional logic** to disable buttons dynamically based on page boundaries.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### 4. Add to Cart Functionality
+- **Challenge**: Implementing a global "Add to Cart" feature while maintaining scalability and state management efficiency.
+- **Solution**: 
+  - Used **`useContext`** for creating a global state for the cart.
+  - Leveraged **`useReducer`** to handle complex state transitions such as adding, removing items, and updating the cart total.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Installation and Setup
 
-### Analyzing the Bundle Size
+To run this project locally, follow these steps:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1. Clone the Repository
+Clone the repository to your local machine.
 
-### Making a Progressive Web App
+```bash
+git clone https://github.com/surya9520/ebazaar
+cd ebazar
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 2. Install Dependencies
+Install the required dependencies by running:
 
-### Advanced Configuration
+```bash
+npm install
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 3. Run the Application
+To start the development server and view the application locally, run:
 
-### Deployment
+```bash
+npm start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Open your browser and visit **http://localhost:3000** to view the app.
 
-### `npm run build` fails to minify
+### 4. Build for Production
+To build the app for production, use:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+npm run build
+```
+
+This will create an optimized production build in the **build** folder.
+
+
+## Technologies Used
+- **React.js**: JavaScript library for building the user interface.
+- **React Router**: For routing between pages.
+- **Tailwind CSS**: For responsive and utility-first styling.
+- **React Context & Reducer**: For global state management (e.g., Cart functionality).
+- **useState, useEffect**: React hooks for managing component state and side effects.
+
+---
+
+## Optional Enhancements Implemented
+- **Sorting**: Products can be sorted by price in ascending or descending order.
+- **Add to Cart Functionality**: Allows users to add products to the cart, remove them, and view cart totals.
+
+---
+
+## Future Enhancements
+- **Authentication**: Add user authentication for a more personalized experience.
+- **API Integration**: Replace static JSON data with a real API to fetch product details.
