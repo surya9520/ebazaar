@@ -19,16 +19,21 @@ const cartReducer = (state, action) => {
   
       // Remove product from cart
       case "RemoveItem":
+        let no_items=1
         const newCart = state.cart.filter(
-          (product) => product.id !== action.payload.id  // Filter out the removed product
+          (product) => {
+            if(product.id==action.payload.id){
+                no_items=product.quantity;
+            }
+            return product.id !== action.payload.id } // Filter out the removed product
         );
         let removeproduct = state.cart.find((pro) => pro.id === product.id);
         if (removeproduct) {
           return { 
             ...state,
             cart: newCart,  // Update the cart without the removed product
-            totalItem: state.totalItem - 1,  // Decrease item count
-            totalAmount: state.totalAmount - removeproduct.price  // Decrease total amount
+            totalItem: state.totalItem - no_items,  // Decrease item count
+            totalAmount: state.totalAmount - (removeproduct.price *no_items ) // Decrease total amount
           };
         }
         return {
